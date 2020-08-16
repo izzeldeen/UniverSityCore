@@ -1,0 +1,151 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AhmadAlnajjar</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+          crossorigin="anonymous">
+    <style type="text/css">
+
+        @@media (min-width: 501px) {
+            .nav-mobile {
+                display: none;
+            }
+        }
+
+        @@media (max-width: 500px) {
+
+
+            .nav-web {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+
+
+
+
+
+
+@section cphPageHead{
+    <style type="text/css" media="screen and (max-width:500px)">
+    </style>s
+
+
+    <style type="text/css" media="screen and (min-width:501px)">
+    </style>
+}
+
+<div class="col-md nav-web">
+
+
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-info bg-info border-bottom box-shadow flex-fill">
+        <div class="container">
+
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse text-right">
+                <ul class="navbar-nav  justify-content-end">
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle bg-info text-white border-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    لوحة التحكم
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="WebSiteDetails" asp-action="Edit">المعلومات الشخصية </a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Courses" asp-action="Index"> المواد الدراسية </a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Announcement" asp-action="Index"> الأعلانات </a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Cv" asp-action="Edit"> السيرة الذاتية  </a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Publications" asp-action="Index"> المنشورات و المؤالفات  </a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="OfficeHours" asp-action="Index"> الساعات المكتبية   </a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Post" asp-action="Index">المدونات  </a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="Post">مدوناتي  </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="Announcement">الأعلانات </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn btn-info" asp-area="" asp-controller="Home" asp-action="OfficeOur">ساعت مكتبية   </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn btn-info" asp-area="" asp-controller="Home" asp-action="Literature">المنشورات و المؤلفات  </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="Courses">المواد الدراسية  </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn btn-info"  asp-area="Customer" asp-controller="Home" asp-action="Cv">السيرة الذاتية </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link btn text-white btn btn-info" asp-area="" asp-controller="Home" asp-action="Index">الرئيسية </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="col-sm nav-mobile text-right">
+    <div class="dropdown align-self-center ml-auto">
+        <button class="btn btn-secondary dropdown-toggle bg-info" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Announcement">الأعلانات </a>
+            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="OfficeOur">ساعت مكتبية   </a>
+            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Courses">المواد الدراسية  </a>
+            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Literature">المنشورات و المؤلفات  </a>
+            <a class="dropdown-item" asp-controller="Home" asp-action="Cv">السيرة الذاتية </a>
+            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">الرئيسية </a>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-12">
+
+    @RenderBody()
+
+
+</div>
+
+
+
+
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@RenderSection("Scripts", required: false)

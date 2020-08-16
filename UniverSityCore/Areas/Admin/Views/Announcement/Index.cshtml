@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<UniverSity.Models.Announcement>
+
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+<div class="row px-5">
+
+    <div >
+        <a  asp-action="Create" class="btn btn-info m-3">أعلان  جديد</a>
+
+
+    </div>
+    <div class="ml-auto ">
+        <h3 class="text-info m-3">قائمة الأعلانات</h3>
+
+    </div>
+
+
+</div>
+
+<div class="px-5">
+
+    <table class="table table-striped border table flex-row-reverse">
+        <tr class="table-secondary">
+
+
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+
+
+                <td>
+                    <a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger text-white">حذف</a>
+                    <a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary text-white">تعدبل</a>
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            </tr>
+        }
+        <tr>
+        </tr>
+    </table>
+
+
+
+</div>

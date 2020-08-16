@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<UniverSity.Models.Courses>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+    <div class="d-flex flex-row-reverse text-right m-5">
+        <div class="p-2 ml-2 bg-info  ">
+            <h5 class="text-white head_pad_10 "> المواد الدراسية </h5>
+            <ul class="text-white rounded-right list-unstyled title_pad_10">
+                @foreach (var item in Model)
+                {
+                    <li class="mb-2"><a href="#" class="text-white">@item.Name</a></li>
+
+
+                }
+            </ul>
+            <div class="bg-info">
+                
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="btn btn-lg btn-info mt-md-5 mt-lg-3 text-white w-100">تسجيل الخروج </a>
+
+                    }
+                    else
+                    {
+                        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-lg btn-info mt-md-5 mt-lg-3 text-white w-100">تسجيل الدخول </a>
+
+                    }
+
+              
+
+            </div>
+
+        </div>
+
+        <div >
+           
+            <div class="container  cont_dis_box">
+                <div class="d-flex flex-row-reverse ">
+                    <div class="bg-info text-white p-2">الصفحة الرئيسية  </div>
+
+                </div>
+
+                <div>
+
+
+
+                    @if (Model.Count() > 0)
+                    {
+                        <div class="container pad_0 mar_box_side">
+                            <div class="row">
+
+                                @foreach (var item in Model)
+                                {
+
+                                    <div class="col-sm-6 mb-1">
+                                        <div class="container cont_dis_box">
+                                            <div class="row text-right">
+
+
+                                                <p class="col-12 text-right"> <strong> @item.Name</strong> </p>
+                                                <p class=" col-12 text-right">
+                                                    @if (item.Description.Length > 100)
+                                                    {
+                                                        @Html.Raw(item.Description.Substring(0, 100))
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.Raw(item.Description)
+                                                    }
+
+                                                </p>
+
+                                            </div>
+                                            <div class="row">
+                                                <a href="#" @*asp-area="Customer" asp-controller="Home" asp-action="GetCourse" asp-route-id="@item.Id"*@ class="btn btn-info login_btn">المزيد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+                    }
+
+                    else
+                    {
+                        <p>لايوجد مواد دراسية </p>
+                    }
+                </div>
+
+             
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+

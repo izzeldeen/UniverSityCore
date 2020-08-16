@@ -1,0 +1,155 @@
+﻿@using UniverSity.Utility
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - محمد عبدالله</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+          crossorigin="anonymous">
+    <style type="text/css">
+
+        @@media (min-width: 501px) {
+            .nav-mobile {
+                display: none;
+            }
+        }
+
+        @@media (max-width: 500px) {
+
+
+            .nav-web {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body >
+
+    <div class="container">
+        <div class="row  text-sm-center px-lg-5 pt-5 px-sm-0 ">
+            <div class="col-sm-12  col-md-3 ">
+                <img src="~/images/UN.PNG" class="float-left" />
+
+            </div>
+
+            <div class="col-sm-6 col-xs-4 text-sm-center text-md-right col-md-3 ml-auto pt-3">
+                <h4>@SD.Name </h4>
+                <p>@SD.Coluage </p>
+                <p> @SD.Position </p>
+                <p>
+                    العنوان :  @SD.Address  @if (SD.PhoneNumber != null)
+                    {
+                    <p> | @SD.PhoneNumber  </p>}
+                </div>
+
+                <div class="col-sm-6 col-xs-4 col-md-3 col-xs-4 text-sm-center">
+                    <img src=@SD.Url class="img-fluid float-right-sm img-border" />
+                </div>
+
+
+            </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info  m-5  p-2 ">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navbarColor01" style="">
+                <ul class="navbar-nav ml-auto">
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item" >
+                            <a class="nav-link text-white btn btn-info" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">لوحة التحكم</a>
+                            <div class="dropdown-menu">
+
+
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="WebSiteDetails" asp-action="Edit">المعلومات الشخصية </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Courses" asp-action="Index"> المواد الدراسية </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Announcement" asp-action="Index"> الأعلانات </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Cv" asp-action="Edit"> السيرة الذاتية  </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Publications" asp-action="Index"> المنشورات و المؤالفات  </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="OfficeHours" asp-action="Index"> الساعات المكتبية   </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Post" asp-action="Index">المدونات  </a>
+                            </div>
+
+                        </li>
+                    }
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="Post">مدوناتي  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="Announcement">الأعلانات </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="OfficeOur">الساعات المكتبية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="Literature">المنشورات و المؤلفات  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="Courses">المواد الدراسية  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="Cv">السيرة الذاتية </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link btn text-white btn btn-info" asp-area="Customer" asp-controller="Home" asp-action="Index">الرئيسية </a>
+                        </li>
+
+                    </ul>
+                
+            </div>
+        </nav>
+
+                @RenderBody()
+
+
+                <footer class="page-footer font-small blue pt-4 bg-info text-white mx-5">
+                    <div class="container">
+                        <div class="d-flex flex-row-reverse">
+                            <div class="p-2 border-left">اتصل بي </div>
+                            <div class="p-2">
+                                <ul class="list-unstyled">
+
+                                    @if (SD.PhoneNumber != null)
+                                    {
+                                        <li style="height:2.5rem;"><a href="#" class="text-white">  <i class="fa fa-phone text-white "></i>  @SD.PhoneNumber  </a></li>
+
+                                    }
+
+                                    <li style=" height: 2.5rem;"><a href="#" class="text-white">   <i class="fab fa-facebook m-0 text-white "></i>   @SD.FacebookUrl </a></li>
+                                    @if (SD.TwitterUrl != null)
+                                    {
+                                        <li style=" height: 2.5rem"><a href="#" class="text-white"> <i class="fab fa-twitter"></i>  @SD.TwitterUrl </a></li>
+
+                                    }
+                                    <li style=" height: 2.5rem"><a href="#" class="text-white"> <i class="fas fa-envelope-square"></i>  @SD.Email </a></li>
+
+
+                                    @if (SD.Fax != null)
+                                    {
+                                        <li style="height: 2.5rem"><a href="#" class="text-white">  <i class="fa fa-fax text-white"></i>  @SD.Fax  </a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </footer>
+              
+
+            </div>
+
+
+
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+            @RenderSection("Scripts", required: false)
+</body>
+</html>

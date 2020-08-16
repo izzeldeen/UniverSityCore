@@ -1,0 +1,83 @@
+﻿
+@model IEnumerable<UniverSity.Models.Publications>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous">
+
+
+
+
+
+
+<div class="row px-5">
+
+    <div class="col-4">
+        <a asp-area="Admin" asp-controller="Publications" asp-action="Create" class="btn btn-info m-3">  اضافة منشور</a>
+
+
+    </div>
+    <div class="col-4 ml-auto col-sm-6" >
+        <h3 class="text-info m-3"> قائمة المنشورات والمؤلفات </h3>
+
+    </div>
+
+
+</div>
+
+<div class="px-5">
+
+    <table class="table table-striped border table flex-row-reverse px-5">
+        <tr class="table-secondary">
+
+
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+
+
+                <td>
+                    <a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger text-white">حذف</a>
+                    <a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary text-white">تعديل</a>
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+            </tr>
+        }
+        <tr>
+        </tr>
+    </table>
+
+
+
+</div>

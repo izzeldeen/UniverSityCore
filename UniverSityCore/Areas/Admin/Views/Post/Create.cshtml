@@ -1,0 +1,75 @@
+﻿@model UniverSity.Models.Post
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h1 class="text-info text-right">اضافة مدونة</h1>
+
+
+
+
+
+<hr />
+<div class="col-md-12  text-right">
+
+
+
+    <div class="col-md-8 ml-auto mr-5">
+        <form asp-action="Create" class="text-right">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-8">
+                        <input asp-for="Subject" class="form-control text-right" />
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="Subject" class="control-label"></label>
+                    </div>
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-8">
+                        <textarea asp-for="Description" class="form-control text-right" style="height:300px;"></textarea>
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="Description" class="control-label"></label>
+                    </div>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-8">
+                    <a asp-action="Index" class="btn btn-primary text-white">العودة الى القائمة</a>
+                    <input type="submit" value="اضافة" class="btn btn-success text-white" />
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    @*<script src="https://cdn.tiny.cloud/1/aazgddz1vyf9zsgqlnjwquva239tort3w2lku4q40fxfanw7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>*@
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+
+
+            tinymce.init({
+                selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+
+            });
+
+
+    </script>
+
+
+}

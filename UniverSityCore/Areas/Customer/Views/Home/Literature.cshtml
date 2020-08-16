@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<UniverSity.Models.Publications>
+
+<div class="col-12 text-right p-5">
+
+    <h4 class=" text-info">المنشورات و المؤلفات  </h4>
+    <hr />
+
+    @if(Model.Count() > 0 )
+    {
+        @foreach(var item in Model)
+        {
+
+            <strong>@item.Title</strong>
+            <hr />
+            <p>@Html.Raw(item.Description)</p>
+
+            <hr />
+        }
+
+
+    }
+    else
+    {
+        <p>لايوجد منشورات </p>
+    }
+
+
+
+</div>

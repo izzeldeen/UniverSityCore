@@ -1,0 +1,101 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model IEnumerable<UniverSity.Models.OfficeHours>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous">
+
+
+
+
+
+
+<div class="row px-5">
+
+    <div class="col-4">
+        <a asp-area="Admin" asp-controller="OfficeHours" asp-action="Create" class="btn btn-info m-3">ساعة مكتبية</a>
+
+
+    </div>
+    <div class="col-md-4 col-sm-6 ml-auto text-right">
+        <h3 class="text-info m-3">قائمة الساعات المكتبية </h3>
+
+    </div>
+
+
+</div>
+
+<div class="px-5">
+
+    <table class="table table-striped border table flex-row-reverse px-5">
+        <tr class="table-secondary">
+
+
+            <th></th>
+            <th></th>
+            <th></th>
+           
+
+            <th>
+               
+                @Html.DisplayNameFor(model => model.EndHour)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.StartHours)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficeNum)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+
+
+
+
+        <td>
+            <a asp-area="Admin" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger text-white">حذف</a>
+            <a asp-area="Admin" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary text-white">تعديل</a>
+        </td>
+        <td></td>
+        <td></td>
+       
+        <td>
+
+            @Html.DisplayFor(modelItem => item.StartHours)
+        </td>
+        <td>
+
+            @Html.DisplayFor(modelItem => item.EndHour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficeNum)
+        </td>
+    </tr>
+        }
+        <tr>
+        </tr>
+    </table>
+
+
+
+</div>
