@@ -6,7 +6,7 @@ namespace UniverSity.Utility
 {
     public static class SD
     {
-        public static string Url = "../../images/Capture.PNG";
+        public static string Url = "/images/Capture.PNG";
 
         public static string Name = "محمد عبدالله الزغارير";
 

@@ -9,10 +9,10 @@ namespace UniverSity.Models
     {
         [Display(Name ="رقم المدونة")]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "يجب ادخال العنوان")]
         [Display(Name ="العنوان")]
         public string Subject { get; set; }
-        [Required]
+        [Required(ErrorMessage = "يجب ادخال التفاصيل")]
         [Display(Name ="التفاصيل")]
         public string Description { get; set; }
     }

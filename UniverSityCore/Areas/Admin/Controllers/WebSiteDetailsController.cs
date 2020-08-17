@@ -55,7 +55,7 @@ namespace UniverSityCore.Areas.Admin.Controllers
                 {
                     files[0].CopyTo(filesStreams);
                 }
-                SD.Url = @"../../images/" + fileName + extenstion;
+                SD.Url = @"/images/" + fileName + extenstion;
             }
 
 

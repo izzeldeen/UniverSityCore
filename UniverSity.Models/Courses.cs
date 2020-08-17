@@ -11,11 +11,11 @@ namespace UniverSity.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="يجب ادخال المادة")]
         [Display(Name = "المادة ")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "يجب ادخال تفاصيل")]
         [Display(Name = "تفاصيل المادة")]
         public string Description { get; set; }
 
