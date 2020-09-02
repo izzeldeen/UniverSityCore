@@ -61,12 +61,19 @@ html {
 
 
 .footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
+  line-height: 60px;  
+
+ }
+
+
+
+
+
+
 .title_pad_10 {
 padding:0 11px ;
 width:100%
@@ -81,10 +88,7 @@ width:100%
 }
 .pad_0 {
 padding:0;}
-.cont_dis_box {
-    border: 1px solid #888;
-    padding-top: 10px;
-}
+
 .login_btn {
     margin: 0px 10px 10px 16px;
 }
@@ -128,37 +132,21 @@ margin-top: 18px;
     border-radius:10%;
 }
 
+.Home-Image{
+    height:200px;
+    width:400px;
+}
 
-/*#footer
-{
-    margin-top:10%;
-}*/
-
-    /*@media only screen and (max-width: 768px) {*/
-    /* For mobile phones: */
-    /*[class*="col-"] {
-        width: 100%;
+@media (max-width: 1000px) {
+    .Home-Image {
+        height: 200px;
+        width: 250px;
     }
 }
 
-@media only screen and (max-width: 500px) {*/
-    /* For mobile phones: */
-    /*.cont_blue_box {
-        margin-top:-100%;
-        margin-bottom:20%;
+@media (max-width: 700px) {
+    .Home-Image {
+        height: 200px;
+        width: 400px;
     }
-    .Login_button {
-        margin-top:-70%;
-    }
-   
 }
-
-
-@media only screen and (max-width: 500px) {*/
-    /* For mobile phones: */
-
-
-    /*.courses_home {
-        margin-top: 70%;
-    }
-}*/

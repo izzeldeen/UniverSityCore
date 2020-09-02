@@ -20,20 +20,22 @@
 
                 }
             </ul>
-            <div class="bg-info">
-                
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="btn btn-lg btn-info mt-md-5 mt-lg-3 text-white w-100">تسجيل الخروج </a>
-
-                    }
-                    else
-                    {
-                        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-lg btn-info mt-md-5 mt-lg-3 text-white w-100">تسجيل الدخول </a>
-
-                    }
-
+          
               
+            <div class="bg-info">
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="btn btn-lg btn-info mt-md-5 mt-lg-3 text-white w-100">تسجيل الخروج </a>
+
+                }
+                else
+                {
+                    <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-lg btn-info mt-md-5 mt-lg-3 text-white w-100">تسجيل الدخول </a>
+
+                }
+
+
 
             </div>
 
@@ -60,7 +62,7 @@
                                 {
 
                                     <div class="col-sm-6 mb-1">
-                                        <div class="container cont_dis_box">
+                                        <div class="container border">
                                             <div class="row text-right">
 
 

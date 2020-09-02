@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using UniverSity.Models;
 using UniverSity.Utility;
 
+
 namespace UniverSityCore.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -45,7 +46,6 @@ namespace UniverSityCore.Areas.Admin.Controllers
                 string fileName = Guid.NewGuid().ToString();
                 var uploads = Path.Combine(webRootPath, @"images");
                 var extenstion = Path.GetExtension(files[0].FileName);
-
                 if (Details.Url != null)
                 {
                     //this is an edit and we need to remove old image
@@ -57,13 +57,9 @@ namespace UniverSityCore.Areas.Admin.Controllers
                 }
                 SD.Url = @"/images/" + fileName + extenstion;
             }
-
-
             if (!ModelState.IsValid)
             {
                 return View();
-
-
             }
 
             SD.Name = Details.Name;
@@ -76,10 +72,9 @@ namespace UniverSityCore.Areas.Admin.Controllers
             SD.FacebookUrl = Details.FacebookUrl;
             SD.TwitterUrl = Details.TwitterUrl;
 
-
-
-
             return View();
         }
+
+    
     }
 }

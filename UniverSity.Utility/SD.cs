@@ -8,7 +8,7 @@ namespace UniverSity.Utility
     {
         public static string Url = "/images/Capture.PNG";
 
-        public static string Name = "محمد عبدالله الزغارير";
+        public static string Name = "د. محمد عبدالله الزعارير";
 
         public static string Coluage = "جامعة قطر";
 

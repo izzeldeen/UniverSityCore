@@ -6,7 +6,6 @@
 
 }
 
-
 <div class="col-12">
 
 
@@ -29,27 +28,19 @@
                             </div>
                             <div class="col-3">
                                 الصورة الشخصية
-
                             </div>
-
-
                             <span asp-validation-for="Url" class="text-danger text-right col-8"></span>
-
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="row">
-
-
                             <div class="col-8 text-right">
                                 <input asp-for="Name" class="form-control text-right" />
                             </div>
                             <div class="col-3">
                                 <label asp-for="Name" class="control-label text-right"></label>
                             </div>
-
-
                             <span asp-validation-for="Name" class="text-danger text-right col-8"></span>
                         </div>
                     </div>
@@ -61,31 +52,23 @@
                             <div class="col-3">
                                 <label asp-for="Coulage" class="control-label text-right"></label>
                             </div>
-
-
                             <span asp-validation-for="Coulage" class="text-danger text-right col-8"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
-
-
                             <div class="col-8 text-right">
                                 <input asp-for="Position" class="form-control text-right" />
                             </div>
                             <div class="col-3">
                                 <label asp-for="Position" class="control-label text-right"></label>
                             </div>
-
-
                             <span asp-validation-for="Position" class="text-danger text-right col-8"></span>
                         </div>
 
                     </div>
                     <div class="form-group">
                         <div class="row">
-
-
                             <div class="col-8 text-right">
                                 <input asp-for="Email" class="form-control text-right" />
                             </div>
@@ -178,7 +161,7 @@
 
 
                                 <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-primary m-0">العودة الصفحة الرئيسية</a>
-                                <input type="submit" value="حفظ" class="btn btn-success col-5" />
+                                <input type="submit" value="حفظ" class="btn btn-success sweet-12 col-5" />
                             </div>
                             <div class="col-3">
 
@@ -199,4 +182,8 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+
+
 }
